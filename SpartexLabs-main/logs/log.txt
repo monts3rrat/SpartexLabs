@@ -1,0 +1,474 @@
+2024-08-10 12:23:15 | DEBUG   | Bot Started
+2024-08-10 12:23:53 | INFO    | Файл base.csv найден
+2024-08-10 12:24:31 | INFO    | 0
+2024-08-10 12:24:31 | INFO    | SpartexSoft7231561651_1 unpacking complete.
+2024-08-10 12:24:32 | ERROR   | An error has been caught in function 'start_or_notify', process 'MainProcess' (13760), thread 'MainThread' (2232):
+Traceback (most recent call last):
+
+  File "C:\Users\user\AppData\Local\Programs\Python\Python311\Lib\shutil.py", line 825, in move
+    os.rename(src, real_dst)
+    │  │      │    └ 'Z:\\my\\SpartexLabs\\SpartexLabs-master\\SpartexLabs-main\\machine\\SpartexSoft7231561651_1/SpartexSoft/data/accounts_data.x...
+    │  │      └ 'Z:/my/SpartexLabs/SpartexLabs-master/SpartexLabs-main\\accounts_user/accounts_data_7231561651.xlsx'
+    │  └ <built-in function rename>
+    └ <module 'os' (frozen)>
+
+FileNotFoundError: [WinError 3] Системе не удается найти указанный путь: 'Z:/my/SpartexLabs/SpartexLabs-master/SpartexLabs-main\\accounts_user/accounts_data_7231561651.xlsx' -> 'Z:\\my\\SpartexLabs\\SpartexLabs-master\\SpartexLabs-main\\machine\\SpartexSoft7231561651_1/SpartexSoft/data/accounts_data.xlsx'
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "Z:\my\SpartexLabs\SpartexLabs-master\SpartexLabs-main\main.py", line 1614, in <module>
+
+  File "C:\Users\user\AppData\Local\Programs\Python\Python311\Lib\asyncio\runners.py", line 190, in run
+    return runner.run(main)
+           │      │   └ <coroutine object main at 0x000001B7B095FB40>
+           │      └ <function Runner.run at 0x000001B798E5BE20>
+           └ <asyncio.runners.Runner object at 0x000001B7B0F500D0>
+  File "C:\Users\user\AppData\Local\Programs\Python\Python311\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           │    │     │                  └ <Task pending name='Task-1' coro=<main() running at C:\Users\user\AppData\Local\Programs\Python\Python311\Lib\site-packages\l...
+           │    │     └ <function BaseEventLoop.run_until_complete at 0x000001B798E59940>
+           │    └ <ProactorEventLoop running=True closed=False debug=False>
+           └ <asyncio.runners.Runner object at 0x000001B7B0F500D0>
+  File "C:\Users\user\AppData\Local\Programs\Python\Python311\Lib\asyncio\base_events.py", line 640, in run_until_complete
+    self.run_forever()
+    │    └ <function ProactorEventLoop.run_forever at 0x000001B798F2D940>
+    └ <ProactorEventLoop running=True closed=False debug=False>
+  File "C:\Users\user\AppData\Local\Programs\Python\Python311\Lib\asyncio\windows_events.py", line 321, in run_forever
+    super().run_forever()
+  File "C:\Users\user\AppData\Local\Programs\Python\Python311\Lib\asyncio\base_events.py", line 607, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x000001B798E5B6A0>
+    └ <ProactorEventLoop running=True closed=False debug=False>
+  File "C:\Users\user\AppData\Local\Programs\Python\Python311\Lib\asyncio\base_events.py", line 1922, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x000001B798D84D60>
+    └ <Handle Task.task_wakeup(<Future finished result=None>)>
+  File "C:\Users\user\AppData\Local\Programs\Python\Python311\Lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle Task.task_wakeup(<Future finished result=None>)>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle Task.task_wakeup(<Future finished result=None>)>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle Task.task_wakeup(<Future finished result=None>)>
+  File "C:\Users\user\AppData\Local\Programs\Python\Python311\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 309, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+                     │    │           │    │         └ {'dispatcher': <Dispatcher '0x1b7afe766d0'>, 'bots': (<aiogram.client.bot.Bot object at 0x000001B798FBC310>,), 'storage': <ai...
+                     │    │           │    └ Update(update_id=187410273, message=None, edited_message=None, channel_post=None, edited_channel_post=None, business_connecti...
+                     │    │           └ <aiogram.client.bot.Bot object at 0x000001B798FBC310>
+                     │    └ <function Dispatcher.feed_update at 0x000001B79FEDC0E0>
+                     └ <Dispatcher '0x1b7afe766d0'>
+  File "C:\Users\user\AppData\Local\Programs\Python\Python311\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 158, in feed_update
+    response = await self.update.wrap_outer_middleware(
+                     │    │      └ <function TelegramEventObserver.wrap_outer_middleware at 0x000001B79FECAAC0>
+                     │    └ <aiogram.dispatcher.event.telegram.TelegramEventObserver object at 0x000001B7B0F29790>
+                     └ <Dispatcher '0x1b7afe766d0'>
+  File "C:\Users\user\AppData\Local\Programs\Python\Python311\Lib\site-packages\aiogram\dispatcher\middlewares\error.py", line 25, in __call__
+    return await handler(event, data)
+                 │       │      └ {'dispatcher': <Dispatcher '0x1b7afe766d0'>, 'bots': (<aiogram.client.bot.Bot object at 0x000001B798FBC310>,), 'storage': <ai...
+                 │       └ Update(update_id=187410273, message=None, edited_message=None, channel_post=None, edited_channel_post=None, business_connecti...
+                 └ functools.partial(<aiogram.dispatcher.middlewares.user_context.UserContextMiddleware object at 0x000001B7B0F29F90>, functools...
+  File "C:\Users\user\AppData\Local\Programs\Python\Python311\Lib\site-packages\aiogram\dispatcher\middlewares\user_context.py", line 49, in __call__
+    return await handler(event, data)
+                 │       │      └ {'dispatcher': <Dispatcher '0x1b7afe766d0'>, 'bots': (<aiogram.client.bot.Bot object at 0x000001B798FBC310>,), 'storage': <ai...
+                 │       └ Update(update_id=187410273, message=None, edited_message=None, channel_post=None, edited_channel_post=None, business_connecti...
+                 └ functools.partial(<aiogram.fsm.middleware.FSMContextMiddleware object at 0x000001B7B0F29FD0>, <function TelegramEventObserver...
+  File "C:\Users\user\AppData\Local\Programs\Python\Python311\Lib\site-packages\aiogram\fsm\middleware.py", line 42, in __call__
+    return await handler(event, data)
+                 │       │      └ {'dispatcher': <Dispatcher '0x1b7afe766d0'>, 'bots': (<aiogram.client.bot.Bot object at 0x000001B798FBC310>,), 'storage': <ai...
+                 │       └ Update(update_id=187410273, message=None, edited_message=None, channel_post=None, edited_channel_post=None, business_connecti...
+                 └ <function TelegramEventObserver.trigger at 0x000001B7B0F5EF20>
+  File "C:\Users\user\AppData\Local\Programs\Python\Python311\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+                 │             │      └ {'dispatcher': <Dispatcher '0x1b7afe766d0'>, 'bots': (<aiogram.client.bot.Bot object at 0x000001B798FBC310>,), 'storage': <ai...
+                 │             └ Update(update_id=187410273, message=None, edited_message=None, channel_post=None, edited_channel_post=None, business_connecti...
+                 └ <function CallableObject.call at 0x000001B7B0F5ED40>
+  File "C:\Users\user\AppData\Local\Programs\Python\Python311\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+                 └ functools.partial(<bound method Dispatcher._listen_update of <Dispatcher '0x1b7afe766d0'>>, Update(update_id=187410273, messa...
+  File "C:\Users\user\AppData\Local\Programs\Python\Python311\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 276, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+                 │    │                           │                  │        └ {'dispatcher': <Dispatcher '0x1b7afe766d0'>, 'bots': (<aiogram.client.bot.Bot object at 0x000001B798FBC310>,), 'storage': <ai...
+                 │    │                           │                  └ CallbackQuery(id='3389204682162461879', from_user=User(id=7231561651, is_bot=False, first_name='zix', last_name=None, usernam...
+                 │    │                           └ 'callback_query'
+                 │    └ <function Router.propagate_event at 0x000001B79FECB6A0>
+                 └ <Dispatcher '0x1b7afe766d0'>
+  File "C:\Users\user\AppData\Local\Programs\Python\Python311\Lib\site-packages\aiogram\dispatcher\router.py", line 142, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+                 │        │                     │               │           └ {'dispatcher': <Dispatcher '0x1b7afe766d0'>, 'bots': (<aiogram.client.bot.Bot object at 0x000001B798FBC310>,), 'storage': <ai...
+                 │        │                     │               └ CallbackQuery(id='3389204682162461879', from_user=User(id=7231561651, is_bot=False, first_name='zix', last_name=None, usernam...
+                 │        │                     └ <function Router.propagate_event.<locals>._wrapped at 0x000001B7B0F5EDE0>
+                 │        └ <function TelegramEventObserver.wrap_outer_middleware at 0x000001B79FECAAC0>
+                 └ <aiogram.dispatcher.event.telegram.TelegramEventObserver object at 0x000001B7B0F22C10>
+  File "C:\Users\user\AppData\Local\Programs\Python\Python311\Lib\site-packages\aiogram\dispatcher\router.py", line 137, in _wrapped
+    return await self._propagate_event(
+                 │    └ <function Router._propagate_event at 0x000001B79FECB740>
+                 └ <Dispatcher '0x1b7afe766d0'>
+  File "C:\Users\user\AppData\Local\Programs\Python\Python311\Lib\site-packages\aiogram\dispatcher\router.py", line 162, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+                     │        │       │        └ {'dispatcher': <Dispatcher '0x1b7afe766d0'>, 'bots': (<aiogram.client.bot.Bot object at 0x000001B798FBC310>,), 'storage': <ai...
+                     │        │       └ CallbackQuery(id='3389204682162461879', from_user=User(id=7231561651, is_bot=False, first_name='zix', last_name=None, usernam...
+                     │        └ <function TelegramEventObserver.trigger at 0x000001B79FECAC00>
+                     └ <aiogram.dispatcher.event.telegram.TelegramEventObserver object at 0x000001B7B0F22C10>
+  File "C:\Users\user\AppData\Local\Programs\Python\Python311\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+                 │             │      └ {'dispatcher': <Dispatcher '0x1b7afe766d0'>, 'bots': (<aiogram.client.bot.Bot object at 0x000001B798FBC310>,), 'storage': <ai...
+                 │             └ CallbackQuery(id='3389204682162461879', from_user=User(id=7231561651, is_bot=False, first_name='zix', last_name=None, usernam...
+                 └ <function CallableObject.call at 0x000001B7B0F5D940>
+  File "C:\Users\user\AppData\Local\Programs\Python\Python311\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+                 └ functools.partial(<function chain_project_choice2 at 0x000001B7B0F4E520>, CallbackQuery(id='3389204682162461879', from_user=U...
+
+  File "Z:\my\SpartexLabs\SpartexLabs-master\SpartexLabs-main\main.py", line 1378, in chain_project_choice2
+    async def chain_project_choice2(callback: types.CallbackQuery, state: FSMContext):
+              │                     │         │     │              │      └ <class 'aiogram.fsm.context.FSMContext'>
+              │                     │         │     │              └ <aiogram.fsm.context.FSMContext object at 0x000001B7B100F810>
+              │                     │         │     └ <class 'aiogram.types.callback_query.CallbackQuery'>
+              │                     │         └ <module 'aiogram.types' from 'C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\aiogram\\type...
+              │                     └ CallbackQuery(id='3389204682162461879', from_user=User(id=7231561651, is_bot=False, first_name='zix', last_name=None, usernam...
+              └ <function chain_project_choice2 at 0x000001B7B0F4E520>
+
+> File "Z:\my\SpartexLabs\SpartexLabs-master\SpartexLabs-main\main.py", line 1394, in start_or_notify
+    await db.reduce_balance(data.get("id"), amount)
+          │  │              │    │          └ 0
+          │  │              │    └ <method 'get' of 'dict' objects>
+          │  │              └ {'project': 'base', 'id': 7231561651, 'file': 'accounts_data.xlsx', 'balance': '0xb96f9c4e2e943522c7251d4288a6ca930cedd26b: 0...
+          │  └ <function reduce_balance at 0x000001B7AFE7A5C0>
+          └ <module 'modules.database.db_api' from 'Z:\\my\\SpartexLabs\\SpartexLabs-master\\SpartexLabs-main\\modules\\database\\db_api....
+
+  File "Z:\my\SpartexLabs\SpartexLabs-master\SpartexLabs-main\main.py", line 1409, in start_machine
+    sleep = ", ".join(data.get("sleep").split("_"))
+                      │    └ <method 'get' of 'dict' objects>
+                      └ {'project': 'base', 'id': 7231561651, 'file': 'accounts_data.xlsx', 'balance': '0xb96f9c4e2e943522c7251d4288a6ca930cedd26b: 0...
+
+  File "Z:\my\SpartexLabs\SpartexLabs-master\SpartexLabs-main\machine\setup.py", line 253, in main
+    await move_excel(machine_num)
+          │          └ 7231561651
+          └ <function move_excel at 0x000001B7B0F1F2E0>
+
+  File "Z:\my\SpartexLabs\SpartexLabs-master\SpartexLabs-main\machine\setup.py", line 55, in move_excel
+    shutil.move(path_excel, dest_path)
+    │      │    │           └ 'Z:\\my\\SpartexLabs\\SpartexLabs-master\\SpartexLabs-main\\machine\\SpartexSoft7231561651_1/SpartexSoft/data/accounts_data.x...
+    │      │    └ 'Z:/my/SpartexLabs/SpartexLabs-master/SpartexLabs-main\\accounts_user/accounts_data_7231561651.xlsx'
+    │      └ <function move at 0x000001B798F0E7A0>
+    └ <module 'shutil' from 'C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\shutil.py'>
+
+  File "C:\Users\user\AppData\Local\Programs\Python\Python311\Lib\shutil.py", line 845, in move
+    copy_function(src, real_dst)
+    │             │    └ 'Z:\\my\\SpartexLabs\\SpartexLabs-master\\SpartexLabs-main\\machine\\SpartexSoft7231561651_1/SpartexSoft/data/accounts_data.x...
+    │             └ 'Z:/my/SpartexLabs/SpartexLabs-master/SpartexLabs-main\\accounts_user/accounts_data_7231561651.xlsx'
+    └ <function copy2 at 0x000001B798F0E160>
+  File "C:\Users\user\AppData\Local\Programs\Python\Python311\Lib\shutil.py", line 436, in copy2
+    copyfile(src, dst, follow_symlinks=follow_symlinks)
+    │        │    │                    └ True
+    │        │    └ 'Z:\\my\\SpartexLabs\\SpartexLabs-master\\SpartexLabs-main\\machine\\SpartexSoft7231561651_1/SpartexSoft/data/accounts_data.x...
+    │        └ 'Z:/my/SpartexLabs/SpartexLabs-master/SpartexLabs-main\\accounts_user/accounts_data_7231561651.xlsx'
+    └ <function copyfile at 0x000001B798F0DE40>
+  File "C:\Users\user\AppData\Local\Programs\Python\Python311\Lib\shutil.py", line 258, in copyfile
+    with open(dst, 'wb') as fdst:
+              └ 'Z:\\my\\SpartexLabs\\SpartexLabs-master\\SpartexLabs-main\\machine\\SpartexSoft7231561651_1/SpartexSoft/data/accounts_data.x...
+
+FileNotFoundError: [Errno 2] No such file or directory: 'Z:\\my\\SpartexLabs\\SpartexLabs-master\\SpartexLabs-main\\machine\\SpartexSoft7231561651_1/SpartexSoft/data/accounts_data.xlsx'
+2024-08-10 12:24:32 | INFO    | A new session has been created for a user with id 7231561651. Session details: base, bridge, 3
+
+2024-08-10 12:25:22 | DEBUG   | Bot Started
+2024-08-10 12:25:28 | DEBUG   | Bot Started
+2024-08-10 12:26:29 | INFO    | Файл base.csv найден
+2024-08-10 12:27:15 | INFO    | 0
+2024-08-10 12:27:15 | INFO    | SpartexSoft7231561651_1 unpacking complete.
+2024-08-10 12:27:15 | INFO    | Excel file 7231561651 has been moved and the original file has been deleted.
+2024-08-10 12:27:15 | INFO    | Settings files changed in SpartexSoft7231561651_1.
+2024-08-10 12:27:15 | INFO    | Starting the SpartexSoft7231561651_1 machine.
+2024-08-10 12:27:15 | INFO    | A new session has been created for a user with id 7231561651. Session details: base, bridge, 0
+
+2024-08-10 12:30:59 | DEBUG   | Bot Started
+2024-08-10 12:31:18 | ERROR   | An error has been caught in function 'document_private', process 'MainProcess' (11508), thread 'MainThread' (1920):
+Traceback (most recent call last):
+
+  File "C:\Users\user\AppData\Local\Programs\Python\Python311\Lib\encodings\hex_codec.py", line 19, in hex_decode
+    return (binascii.a2b_hex(input), len(input))
+            │        │       │           └ 'Main 1'
+            │        │       └ 'Main 1'
+            │        └ <built-in function a2b_hex>
+            └ <module 'binascii' (built-in)>
+
+binascii.Error: Non-hexadecimal digit found
+
+
+The above exception was the direct cause of the following exception:
+
+
+Traceback (most recent call last):
+
+  File "Z:\my\SpartexLabs\SpartexLabs-master\SpartexLabs-main\main.py", line 1617, in <module>
+    asyncio.run(main())
+    │       │   └ <function main at 0x000001CEB7B4FC40>
+    │       └ <function run at 0x000001CE9F9F7EC0>
+    └ <module 'asyncio' from 'C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\asyncio\\__init__.py'>
+
+  File "C:\Users\user\AppData\Local\Programs\Python\Python311\Lib\asyncio\runners.py", line 190, in run
+    return runner.run(main)
+           │      │   └ <coroutine object main at 0x000001CEB756FB40>
+           │      └ <function Runner.run at 0x000001CE9FA6BE20>
+           └ <asyncio.runners.Runner object at 0x000001CEB7B50350>
+  File "C:\Users\user\AppData\Local\Programs\Python\Python311\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           │    │     │                  └ <Task pending name='Task-1' coro=<main() running at C:\Users\user\AppData\Local\Programs\Python\Python311\Lib\site-packages\l...
+           │    │     └ <function BaseEventLoop.run_until_complete at 0x000001CE9FA69940>
+           │    └ <ProactorEventLoop running=True closed=False debug=False>
+           └ <asyncio.runners.Runner object at 0x000001CEB7B50350>
+  File "C:\Users\user\AppData\Local\Programs\Python\Python311\Lib\asyncio\base_events.py", line 640, in run_until_complete
+    self.run_forever()
+    │    └ <function ProactorEventLoop.run_forever at 0x000001CE9FB3D940>
+    └ <ProactorEventLoop running=True closed=False debug=False>
+  File "C:\Users\user\AppData\Local\Programs\Python\Python311\Lib\asyncio\windows_events.py", line 321, in run_forever
+    super().run_forever()
+  File "C:\Users\user\AppData\Local\Programs\Python\Python311\Lib\asyncio\base_events.py", line 607, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x000001CE9FA6B6A0>
+    └ <ProactorEventLoop running=True closed=False debug=False>
+  File "C:\Users\user\AppData\Local\Programs\Python\Python311\Lib\asyncio\base_events.py", line 1922, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x000001CE9F994D60>
+    └ <Handle Task.task_wakeup(<Future finished result=None>)>
+  File "C:\Users\user\AppData\Local\Programs\Python\Python311\Lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle Task.task_wakeup(<Future finished result=None>)>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle Task.task_wakeup(<Future finished result=None>)>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle Task.task_wakeup(<Future finished result=None>)>
+  File "C:\Users\user\AppData\Local\Programs\Python\Python311\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 309, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+                     │    │           │    │         └ {'dispatcher': <Dispatcher '0x1ceb6a86710'>, 'bots': (<aiogram.client.bot.Bot object at 0x000001CE9FBCDC90>,), 'storage': <ai...
+                     │    │           │    └ Update(update_id=187410288, message=Message(message_id=12177, date=datetime.datetime(2024, 8, 10, 7, 31, 28, tzinfo=TzInfo(UT...
+                     │    │           └ <aiogram.client.bot.Bot object at 0x000001CE9FBCDC90>
+                     │    └ <function Dispatcher.feed_update at 0x000001CEA6AEC0E0>
+                     └ <Dispatcher '0x1ceb6a86710'>
+  File "C:\Users\user\AppData\Local\Programs\Python\Python311\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 158, in feed_update
+    response = await self.update.wrap_outer_middleware(
+                     │    │      └ <function TelegramEventObserver.wrap_outer_middleware at 0x000001CEA6AD6AC0>
+                     │    └ <aiogram.dispatcher.event.telegram.TelegramEventObserver object at 0x000001CEB7B298D0>
+                     └ <Dispatcher '0x1ceb6a86710'>
+  File "C:\Users\user\AppData\Local\Programs\Python\Python311\Lib\site-packages\aiogram\dispatcher\middlewares\error.py", line 25, in __call__
+    return await handler(event, data)
+                 │       │      └ {'dispatcher': <Dispatcher '0x1ceb6a86710'>, 'bots': (<aiogram.client.bot.Bot object at 0x000001CE9FBCDC90>,), 'storage': <ai...
+                 │       └ Update(update_id=187410288, message=Message(message_id=12177, date=datetime.datetime(2024, 8, 10, 7, 31, 28, tzinfo=TzInfo(UT...
+                 └ functools.partial(<aiogram.dispatcher.middlewares.user_context.UserContextMiddleware object at 0x000001CEB7B2A0D0>, functools...
+  File "C:\Users\user\AppData\Local\Programs\Python\Python311\Lib\site-packages\aiogram\dispatcher\middlewares\user_context.py", line 49, in __call__
+    return await handler(event, data)
+                 │       │      └ {'dispatcher': <Dispatcher '0x1ceb6a86710'>, 'bots': (<aiogram.client.bot.Bot object at 0x000001CE9FBCDC90>,), 'storage': <ai...
+                 │       └ Update(update_id=187410288, message=Message(message_id=12177, date=datetime.datetime(2024, 8, 10, 7, 31, 28, tzinfo=TzInfo(UT...
+                 └ functools.partial(<aiogram.fsm.middleware.FSMContextMiddleware object at 0x000001CEB7B2A150>, <function TelegramEventObserver...
+  File "C:\Users\user\AppData\Local\Programs\Python\Python311\Lib\site-packages\aiogram\fsm\middleware.py", line 42, in __call__
+    return await handler(event, data)
+                 │       │      └ {'dispatcher': <Dispatcher '0x1ceb6a86710'>, 'bots': (<aiogram.client.bot.Bot object at 0x000001CE9FBCDC90>,), 'storage': <ai...
+                 │       └ Update(update_id=187410288, message=Message(message_id=12177, date=datetime.datetime(2024, 8, 10, 7, 31, 28, tzinfo=TzInfo(UT...
+                 └ <function TelegramEventObserver.trigger at 0x000001CEB7B5ED40>
+  File "C:\Users\user\AppData\Local\Programs\Python\Python311\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+                 │             │      └ {'dispatcher': <Dispatcher '0x1ceb6a86710'>, 'bots': (<aiogram.client.bot.Bot object at 0x000001CE9FBCDC90>,), 'storage': <ai...
+                 │             └ Update(update_id=187410288, message=Message(message_id=12177, date=datetime.datetime(2024, 8, 10, 7, 31, 28, tzinfo=TzInfo(UT...
+                 └ <function CallableObject.call at 0x000001CEB7B5FCE0>
+  File "C:\Users\user\AppData\Local\Programs\Python\Python311\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+                 └ functools.partial(<bound method Dispatcher._listen_update of <Dispatcher '0x1ceb6a86710'>>, Update(update_id=187410288, messa...
+  File "C:\Users\user\AppData\Local\Programs\Python\Python311\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 276, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+                 │    │                           │                  │        └ {'dispatcher': <Dispatcher '0x1ceb6a86710'>, 'bots': (<aiogram.client.bot.Bot object at 0x000001CE9FBCDC90>,), 'storage': <ai...
+                 │    │                           │                  └ Message(message_id=12177, date=datetime.datetime(2024, 8, 10, 7, 31, 28, tzinfo=TzInfo(UTC)), chat=Chat(id=7231561651, type='...
+                 │    │                           └ 'message'
+                 │    └ <function Router.propagate_event at 0x000001CEA6AD76A0>
+                 └ <Dispatcher '0x1ceb6a86710'>
+  File "C:\Users\user\AppData\Local\Programs\Python\Python311\Lib\site-packages\aiogram\dispatcher\router.py", line 142, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+                 │        │                     │               │           └ {'dispatcher': <Dispatcher '0x1ceb6a86710'>, 'bots': (<aiogram.client.bot.Bot object at 0x000001CE9FBCDC90>,), 'storage': <ai...
+                 │        │                     │               └ Message(message_id=12177, date=datetime.datetime(2024, 8, 10, 7, 31, 28, tzinfo=TzInfo(UTC)), chat=Chat(id=7231561651, type='...
+                 │        │                     └ <function Router.propagate_event.<locals>._wrapped at 0x000001CEB7B5EDE0>
+                 │        └ <function TelegramEventObserver.wrap_outer_middleware at 0x000001CEA6AD6AC0>
+                 └ <aiogram.dispatcher.event.telegram.TelegramEventObserver object at 0x000001CEB6A9AE90>
+  File "C:\Users\user\AppData\Local\Programs\Python\Python311\Lib\site-packages\aiogram\dispatcher\router.py", line 137, in _wrapped
+    return await self._propagate_event(
+                 │    └ <function Router._propagate_event at 0x000001CEA6AD7740>
+                 └ <Dispatcher '0x1ceb6a86710'>
+  File "C:\Users\user\AppData\Local\Programs\Python\Python311\Lib\site-packages\aiogram\dispatcher\router.py", line 162, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+                     │        │       │        └ {'dispatcher': <Dispatcher '0x1ceb6a86710'>, 'bots': (<aiogram.client.bot.Bot object at 0x000001CE9FBCDC90>,), 'storage': <ai...
+                     │        │       └ Message(message_id=12177, date=datetime.datetime(2024, 8, 10, 7, 31, 28, tzinfo=TzInfo(UTC)), chat=Chat(id=7231561651, type='...
+                     │        └ <function TelegramEventObserver.trigger at 0x000001CEA6AD6C00>
+                     └ <aiogram.dispatcher.event.telegram.TelegramEventObserver object at 0x000001CEB6A9AE90>
+  File "C:\Users\user\AppData\Local\Programs\Python\Python311\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+                 │             │      └ {'dispatcher': <Dispatcher '0x1ceb6a86710'>, 'bots': (<aiogram.client.bot.Bot object at 0x000001CE9FBCDC90>,), 'storage': <ai...
+                 │             └ Message(message_id=12177, date=datetime.datetime(2024, 8, 10, 7, 31, 28, tzinfo=TzInfo(UTC)), chat=Chat(id=7231561651, type='...
+                 └ functools.partial(<__main__.BanMiddleware object at 0x000001CEB7B3B4D0>, functools.partial(<modules.functions.antiflood.AntiF...
+
+  File "Z:\my\SpartexLabs\SpartexLabs-master\SpartexLabs-main\main.py", line 84, in __call__
+    return await handler(event, data)
+                 │       │      └ {'dispatcher': <Dispatcher '0x1ceb6a86710'>, 'bots': (<aiogram.client.bot.Bot object at 0x000001CE9FBCDC90>,), 'storage': <ai...
+                 │       └ Message(message_id=12177, date=datetime.datetime(2024, 8, 10, 7, 31, 28, tzinfo=TzInfo(UTC)), chat=Chat(id=7231561651, type='...
+                 └ functools.partial(<modules.functions.antiflood.AntiFlood object at 0x000001CEB7B70490>, <function CallableObject.call at 0x00...
+
+  File "Z:\my\SpartexLabs\SpartexLabs-master\SpartexLabs-main\modules\functions\antiflood.py", line 24, in __call__
+    return await handler(event, data)
+                 │       │      └ {'dispatcher': <Dispatcher '0x1ceb6a86710'>, 'bots': (<aiogram.client.bot.Bot object at 0x000001CE9FBCDC90>,), 'storage': <ai...
+                 │       └ Message(message_id=12177, date=datetime.datetime(2024, 8, 10, 7, 31, 28, tzinfo=TzInfo(UTC)), chat=Chat(id=7231561651, type='...
+                 └ <function CallableObject.call at 0x000001CEB7B5FE20>
+
+  File "C:\Users\user\AppData\Local\Programs\Python\Python311\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+                 └ functools.partial(<function document_private at 0x000001CEB7B46C00>, Message(message_id=12177, date=datetime.datetime(2024, 8...
+
+> File "Z:\my\SpartexLabs\SpartexLabs-master\SpartexLabs-main\main.py", line 1031, in document_private
+    await process_data(message, project.get("project"), path_to_xlsx, state)
+          │            │        │       │               │             └ <aiogram.fsm.context.FSMContext object at 0x000001CEB7B7FC90>
+          │            │        │       │               └ 'accounts_user\\accounts_data_zora_7231561651.xlsx'
+          │            │        │       └ <method 'get' of 'dict' objects>
+          │            │        └ {'project': 'zora'}
+          │            └ Message(message_id=12177, date=datetime.datetime(2024, 8, 10, 7, 31, 28, tzinfo=TzInfo(UTC)), chat=Chat(id=7231561651, type='...
+          └ <function process_data at 0x000001CEB7B4D1C0>
+
+  File "Z:\my\SpartexLabs\SpartexLabs-master\SpartexLabs-main\main.py", line 1209, in process_data
+    addresses = await checker.generate_address_zora(path_to_xlsx)
+                      │       │                     └ 'accounts_user\\accounts_data_zora_7231561651.xlsx'
+                      │       └ <function generate_address_zora at 0x000001CEB6863BA0>
+                      └ <module 'checker.checker' from 'Z:\\my\\SpartexLabs\\SpartexLabs-master\\SpartexLabs-main\\checker\\checker.py'>
+
+  File "Z:\my\SpartexLabs\SpartexLabs-master\SpartexLabs-main\checker\checker.py", line 41, in generate_address_zora
+    addresses.append(blocksmith.EthereumWallet.generate_address(private_key))
+    │         │      │          │              │                └ 'Main 1'
+    │         │      │          │              └ <staticmethod(<function EthereumWallet.generate_address at 0x000001CEB6902D40>)>
+    │         │      │          └ <class 'blocksmith.ethereum.EthereumWallet'>
+    │         │      └ <module 'blocksmith' from 'C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\blocksmith\\__in...
+    │         └ <method 'append' of 'list' objects>
+    └ []
+
+  File "C:\Users\user\AppData\Local\Programs\Python\Python311\Lib\site-packages\blocksmith\ethereum.py", line 8, in generate_address
+    public_key = EthereumWallet.__private_to_public(private_key)
+                 │                                  └ 'Main 1'
+                 └ <class 'blocksmith.ethereum.EthereumWallet'>
+  File "C:\Users\user\AppData\Local\Programs\Python\Python311\Lib\site-packages\blocksmith\ethereum.py", line 32, in __private_to_public
+    private_key_bytes = codecs.decode(private_key, 'hex')
+                        │      │      └ 'Main 1'
+                        │      └ <built-in function decode>
+                        └ <module 'codecs' (frozen)>
+
+binascii.Error: decoding with 'hex' codec failed (Error: Non-hexadecimal digit found)
+2024-08-10 12:33:03 | DEBUG   | Bot Started
+2024-08-10 12:33:17 | DEBUG   | Bot Started
+2024-08-10 12:33:49 | INFO    | Файл base.csv найден
+2024-08-10 12:33:52 | INFO    | 3
+2024-08-10 12:34:05 | INFO    | 0
+2024-08-10 12:34:05 | INFO    | SpartexSoft7231561651_1 unpacking complete.
+2024-08-10 12:34:05 | INFO    | Excel file 7231561651 has been moved and the original file has been deleted.
+2024-08-10 12:34:05 | INFO    | Settings files changed in SpartexSoft7231561651_1.
+2024-08-10 12:34:05 | INFO    | Starting the SpartexSoft7231561651_1 machine.
+2024-08-10 12:34:06 | INFO    | A new session has been created for a user with id 7231561651. Session details: base, bridge, 3
+
+2024-08-10 12:35:01 | DEBUG   | Bot Started
+2024-08-10 12:35:54 | INFO    | Файл base.csv найден
+2024-08-10 12:35:57 | INFO    | 3
+2024-08-10 12:36:07 | INFO    | amount_raw
+2024-08-10 12:36:07 | INFO    | amount
+2024-08-10 12:36:07 | INFO    | SpartexSoft7231561651_1 unpacking complete.
+2024-08-10 12:36:08 | INFO    | Excel file 7231561651 has been moved and the original file has been deleted.
+2024-08-10 12:36:08 | INFO    | Settings files changed in SpartexSoft7231561651_1.
+2024-08-10 12:36:08 | INFO    | Starting the SpartexSoft7231561651_1 machine.
+2024-08-10 12:36:08 | INFO    | A new session has been created for a user with id 7231561651. Session details: base, bridge, 3
+
+2024-08-10 12:37:12 | DEBUG   | Bot Started
+2024-08-10 12:43:13 | DEBUG   | Bot Started
+2024-08-10 12:43:40 | INFO    | Файл base.csv найден
+2024-08-10 12:43:43 | INFO    | 3
+2024-08-10 12:43:49 | INFO    | 0.29
+2024-08-10 12:43:49 | INFO    | 0
+2024-08-10 12:43:49 | INFO    | SpartexSoft7231561651_1 unpacking complete.
+2024-08-10 12:43:49 | INFO    | Excel file 7231561651 has been moved and the original file has been deleted.
+2024-08-10 12:43:49 | INFO    | Settings files changed in SpartexSoft7231561651_1.
+2024-08-10 12:43:49 | INFO    | Starting the SpartexSoft7231561651_1 machine.
+2024-08-10 12:43:49 | INFO    | A new session has been created for a user with id 7231561651. Session details: base, bridge, 3
+
+2024-08-10 12:45:18 | DEBUG   | Bot Started
+2024-08-10 12:47:21 | DEBUG   | Bot Started
+2024-08-10 12:55:21 | INFO    | Файл base.csv найден
+2024-08-10 12:55:24 | INFO    | 3
+2024-08-10 12:55:36 | INFO    | 0.09
+2024-08-10 12:55:36 | INFO    | 0.27
+2024-08-10 12:55:36 | INFO    | SpartexSoft7231561651_1 unpacking complete.
+2024-08-10 12:55:36 | INFO    | Excel file 7231561651 has been moved and the original file has been deleted.
+2024-08-10 12:55:36 | INFO    | Settings files changed in SpartexSoft7231561651_1.
+2024-08-10 12:55:36 | INFO    | Starting the SpartexSoft7231561651_1 machine.
+2024-08-10 12:55:36 | INFO    | A new session has been created for a user with id 7231561651. Session details: base, swap, 3
+
+2024-08-10 12:59:44 | DEBUG   | Bot Started
+2024-08-10 13:01:21 | DEBUG   | Bot Started
+2024-08-10 13:01:54 | INFO    | Файл base.csv найден
+2024-08-10 13:01:57 | INFO    | 3
+2024-08-10 13:02:02 | INFO    | 0.09
+2024-08-10 13:02:02 | INFO    | 0.27
+2024-08-10 13:02:02 | INFO    | SpartexSoft7231561651_1 unpacking complete.
+2024-08-10 13:02:03 | INFO    | Excel file 7231561651 has been moved and the original file has been deleted.
+2024-08-10 13:02:03 | INFO    | Settings files changed in SpartexSoft7231561651_1.
+2024-08-10 13:02:03 | INFO    | Starting the SpartexSoft7231561651_1 machine.
+2024-08-10 13:02:03 | INFO    | A new session has been created for a user with id 7231561651. Session details: base, swap, 3
+
+2024-08-10 13:06:41 | DEBUG   | Bot Started
+2024-08-10 13:34:13 | INFO    | Invoice https://commerce.coinbase.com/pay/5783a50d-544e-49ac-92e2-702d2811b061 was created for user 7232698228 for 10$
+2024-08-10 13:45:13 | DEBUG   | Bot Started
+2024-08-10 13:46:57 | DEBUG   | Bot Started
+2024-08-10 13:55:15 | DEBUG   | Bot Started
+2024-08-10 13:55:55 | INFO    | Файл base.csv найден
+2024-08-10 13:55:58 | INFO    | 2
+2024-08-10 13:56:08 | INFO    | 0.09
+2024-08-10 13:56:08 | INFO    | 0.18
+2024-08-10 13:56:08 | INFO    | SpartexSoft7231561651_1 unpacking complete.
+2024-08-10 13:56:08 | INFO    | Excel file 7231561651 has been moved and the original file has been deleted.
+2024-08-10 13:56:08 | INFO    | Settings files changed in SpartexSoft7231561651_1.
+2024-08-10 13:56:08 | INFO    | Starting the SpartexSoft7231561651_1 machine.
+2024-08-10 13:56:09 | INFO    | A new session has been created for a user with id 7231561651. Session details: base, swap, 2
+
+2024-08-10 13:56:31 | INFO    | Файл base.csv найден
+2024-08-10 13:56:34 | INFO    | 2
+2024-08-10 13:57:04 | INFO    | 0.09
+2024-08-10 13:57:04 | INFO    | 0.18
+2024-08-10 13:57:04 | INFO    | SpartexSoft1035575906_0 unpacking complete.
+2024-08-10 13:57:04 | INFO    | Excel file 1035575906 has been moved and the original file has been deleted.
+2024-08-10 13:57:04 | INFO    | Settings files changed in SpartexSoft1035575906_0.
+2024-08-10 13:57:04 | INFO    | Starting the SpartexSoft1035575906_0 machine.
+2024-08-10 13:57:04 | INFO    | A new session has been created for a user with id 1035575906. Session details: base, swap, 2
+
+2024-08-10 14:14:03 | DEBUG   | Bot Started
+2024-08-10 14:16:14 | INFO    | Файл base.csv найден
+2024-08-10 14:16:17 | INFO    | 1
+2024-08-10 14:16:25 | INFO    | 0.29
+2024-08-10 14:16:25 | INFO    | 0.29
+2024-08-10 14:16:25 | INFO    | SpartexSoft7231561651_1 unpacking complete.
+2024-08-10 14:16:26 | INFO    | Excel file 7231561651 has been moved and the original file has been deleted.
+2024-08-10 14:16:26 | INFO    | Settings files changed in SpartexSoft7231561651_1.
+2024-08-10 14:16:26 | INFO    | Starting the SpartexSoft7231561651_1 machine.
+2024-08-10 14:16:26 | INFO    | A new session has been created for a user with id 7231561651. Session details: base, bridge, 1
+
+2024-08-10 14:18:37 | INFO    | Файл base.csv найден
+2024-08-10 14:18:40 | INFO    | 1
+2024-08-10 14:18:52 | INFO    | 0.29
+2024-08-10 14:18:52 | INFO    | 0.29
+2024-08-10 14:18:52 | INFO    | SpartexSoft7231561651_0 unpacking complete.
+2024-08-10 14:18:52 | INFO    | Excel file 7231561651 has been moved and the original file has been deleted.
+2024-08-10 14:18:52 | INFO    | Settings files changed in SpartexSoft7231561651_0.
+2024-08-10 14:18:52 | INFO    | Starting the SpartexSoft7231561651_0 machine.
+2024-08-10 14:18:53 | INFO    | A new session has been created for a user with id 7231561651. Session details: base, bridge, 1
+
+2024-08-10 14:23:41 | DEBUG   | Bot Started
+2024-08-16 11:57:14 | DEBUG   | Bot Started
+2024-08-16 12:00:23 | DEBUG   | Bot Started
+2024-08-16 12:04:48 | DEBUG   | Bot Started
+2024-08-16 12:06:48 | DEBUG   | Bot Started
+2024-08-16 12:06:54 | INFO    | 9998.7
+2024-08-16 12:08:43 | DEBUG   | Bot Started
+2024-08-16 12:08:48 | INFO    | 999
+2024-08-16 12:10:40 | DEBUG   | Bot Started

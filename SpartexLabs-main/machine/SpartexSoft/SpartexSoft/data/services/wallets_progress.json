@@ -1,0 +1,14 @@
+{
+    "Main 1": {
+        "current_step": 0,
+        "route": [
+            "swap_odos 3"
+        ]
+    },
+    "Main 2": {
+        "current_step": 0,
+        "route": [
+            "swap_odos 3"
+        ]
+    }
+}

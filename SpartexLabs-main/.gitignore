@@ -1,0 +1,16 @@
+node_modules
+.DS_Store
+results/*.csv
+wallets.txt
+.vscode
+__pycache__
+__pycache__/
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+.ruff_cache/
+.idea/
