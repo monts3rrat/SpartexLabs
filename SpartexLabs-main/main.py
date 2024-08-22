@@ -351,15 +351,18 @@ async def admin_stat(message: types.Message):
 @logger.catch
 async def profile(message: types.Message):
     balance = await db.check_balance(message.from_user.id)
-    
+
     img_path = await draw_img.draw_profile(message.from_user.id, round(balance, 2))
     img = FSInputFile(img_path)
-    await message.answer_photo(photo=img, caption=f"Ваш профиль, альфа ретрохантер! 🧑‍🦽\n\n"
-                                                  f"🧿  ID: <i>{message.from_user.id}</i>\n"
-                                                  f"🧢  Nick: <i>{message.from_user.full_name[:32]}</i>\n"
-                                                  f"🩻  Username: <i>{message.from_user.username}</i>\n\n"
-                                                  f"🪙  Баланс: <i>{round(balance, 2)}$</i>\n\n",
-                               reply_markup=reply_kb.profile_kb.as_markup(resize_keyboard=True))
+    try:
+        await message.answer_photo(photo=img, caption=f"Ваш профиль, альфа ретрохантер! 🧑‍🦽\n\n"
+                                                      f"🧿  ID: <i>{message.from_user.id}</i>\n"
+                                                      f"🧢  Nick: <i>{message.from_user.full_name[:32]}</i>\n"
+                                                      f"🩻  Username: <i>{message.from_user.username}</i>\n\n"
+                                                      f"🪙  Баланс: <i>{round(balance, 2)}$</i>\n\n",
+                                   reply_markup=reply_kb.profile_kb.as_markup(resize_keyboard=True))
+    except:
+        pass
     await asyncio.sleep(2)
 
     try:
@@ -377,12 +380,14 @@ async def balance_menu(message: types.Message):
     path = f"{'/'.join(current_directory)}/modules/data/photos"
 
     gif = FSInputFile(f"{path}/balance.gif")
-
-    await message.answer_animation(animation=gif,
-                                   caption=f"🪙 Ваш баланс: <i>{round(balance, 2)}$.</i>\n\n"
-                                           f"<blockquote>Казна пуста, милорд,\nНужно больше золота!</blockquote>\n\n"
-                                           f"<tg-spoiler>Нажимай Пополнить и летсго крутить ретро.</tg-spoiler>",
-                                   reply_markup=reply_kb.balance_kb.as_markup(resize_keyboard=True))
+    try:
+        await message.answer_animation(animation=gif,
+                                       caption=f"🪙 Ваш баланс: <i>{round(balance, 2)}$.</i>\n\n"
+                                               f"<blockquote>Казна пуста, милорд,\nНужно больше золота!</blockquote>\n\n"
+                                               f"<tg-spoiler>Нажимай Пополнить и летсго крутить ретро.</tg-spoiler>",
+                                       reply_markup=reply_kb.balance_kb.as_markup(resize_keyboard=True))
+    except:
+        pass
 
 
 async def session_hueta(id):
@@ -472,12 +477,13 @@ async def session_menu(message: types.Message, state: FSMContext):
         keyboard = inline_kb.session_list1()
     else:
         keyboard = None
-
-    await message.answer_photo(photo=img,
-                               caption=f"Листайте список ваших сессий кнопками ниже. Ваши сессии \n(сессия, проект, "
-                                       f"функция, кол-во кошельков, статус): \n\n"
-                                       f"{qq}", reply_markup=keyboard)
-
+    try:
+        await message.answer_photo(photo=img,
+                                   caption=f"Листайте список ваших сессий кнопками ниже. Ваши сессии \n(сессия, проект, "
+                                           f"функция, кол-во кошельков, статус): \n\n"
+                                           f"{qq}", reply_markup=keyboard)
+    except:
+        pass
     await asyncio.sleep(2)
 
     try:
@@ -548,12 +554,14 @@ async def callbacks_num(callback: types.CallbackQuery, state: FSMContext):
 async def ref_system_menu(message: types.Message):
     img_path = await draw_img.draw_ref(message.from_user.id, db_ref.count_referals(message.from_user.id))
     img = FSInputFile(img_path)
-    await message.answer_photo(photo=img,
-                               caption=f"<b>Ваша реферальная ссылка: https://t.me/{config.BOT_USERNAME}?"
-                                       f"start={message.from_user.id}</b>\n\n"
-                                       f"🚹 <i>Количество рефералов: {db_ref.count_referals(message.from_user.id)}</i>\n\n"
-                                       f"<tg-spoiler>Пополни веб3 мир сибилами</tg-spoiler>")
-
+    try:
+        await message.answer_photo(photo=img,
+                                   caption=f"<b>Ваша реферальная ссылка: https://t.me/{config.BOT_USERNAME}?"
+                                           f"start={message.from_user.id}</b>\n\n"
+                                           f"🚹 <i>Количество рефералов: {db_ref.count_referals(message.from_user.id)}</i>\n\n"
+                                           f"<tg-spoiler>Пополни веб3 мир сибилами</tg-spoiler>")
+    except:
+        pass
     await asyncio.sleep(2)
 
     try:
@@ -568,11 +576,13 @@ async def supports_and_faq(message: types.Message):
     current_directory = os.path.dirname(os.path.realpath(__file__)).split("\\")
     path = f"{'/'.join(current_directory)}/modules/data/photos"
     img = FSInputFile(f"{path}/faq.png")
-
-    await message.answer_photo(photo=img,
-                               caption="💌 Связь с поддержкой: @self_zix.\n"
-                                       "🗽 Наши медиа: @spartexmedia\n\n"
-                                       "🛡 FAQ: coming soon")
+    try:
+        await message.answer_photo(photo=img,
+                                   caption="💌 Связь с поддержкой: @self_zix.\n"
+                                           "🗽 Наши медиа: @spartexmedia\n\n"
+                                           "🛡 FAQ: coming soon")
+    except:
+        pass
 
 
 # software setup
@@ -582,15 +592,16 @@ async def start_soft(message: Message):
     current_directory = os.path.dirname(os.path.realpath(__file__)).split("\\")
     path = f"{'/'.join(current_directory)}/modules/data/photos"
     img = FSInputFile(f"{path}/menu_soft.png")
-
-    await message.answer_photo(photo=img,
+    try:
+        await message.answer_photo(photo=img,
                                caption="Пополняйте аккаунт на необходимое количество $$$, так как вывод недоступен 😈\n"
                                        '<b>Так же прочитайте "FAQ", прежде чем запустить софт!</b>\n\n'
                                        "<tg-spoiler>В любом случае нам пофек ⚫️</tg-spoiler>\n\n"
                                        '<b>"Услуги"</b> ➡️ выбор проекта, функции, загрузка ваших кошельков и СТАААРТ!\n\n'
                                        '<b>"Пополнить баланс"</b> ➡️ пополнение средств на ваш профиль, чтобы оплачивать "услуги"',
                                reply_markup=reply_kb.start_soft_kb.as_markup(resize_keyboard=True))
-
+    except:
+        pass
 
 @logger.catch
 async def replenishment_balance(message: Message, state: FSMContext):
@@ -834,13 +845,13 @@ async def project_next(callback: types.CallbackQuery, state: FSMContext):
     if project.get("project") not in ["cex", "zora", "hyperlane"]:
         doc = FSInputFile("./modules/data/accounts_data.xlsx")
         await callback.message.answer_document(document=doc,
-                                               caption="Заполните таблицу и отправьте файл обратно в бота")
+                                               caption="Заполните таблицу и отправьте файл обратно в бота. Названия кошельков нужны обязательно, помимо приватников и прокси!")
         await state.set_state(DataWaiting.waiting_for_xlsx)
 
     elif project.get("project") == "zora":
         doc = FSInputFile("./modules/data/accounts_data_zora.xlsx")
         await callback.message.answer_document(document=doc,
-                                               caption="Заполните таблицу и отправьте файл обратно в бота")
+                                               caption="Заполните таблицу и отправьте файл обратно в бота. Названия кошельков нужны обязательно, помимо приватников и прокси!")
         await state.set_state(DataWaiting.waiting_for_xlsx)
 
     elif project.get("project") == "hyperlane":
@@ -853,7 +864,8 @@ async def hl_main(callback: types.CallbackQuery, state: FSMContext):
 
     doc = FSInputFile("./modules/data/accounts_data.xlsx")
     await callback.message.answer_document(
-        document=doc, caption="Заполните таблицу hl и отправьте файл обратно в бота"
+        document=doc,
+        caption="Заполните таблицу и отправьте файл обратно в бота. Названия кошельков нужны обязательно, помимо приватников и прокси!"
     )
     await state.set_state(HlDataWaiting.waiting_for_xlsx)
 
@@ -864,9 +876,8 @@ async def hl_xslx(message, state: FSMContext):
     raw_network = qq.get("hl_net1")
     network = raw_network.split("_")[0]
 
-    await sleep_excel(message)
-
     try:
+        await sleep_excel(message)
         file_name = await state.update_data(file=message.document.file_name)
 
         path_to_xlsx = os.path.join(
@@ -896,7 +907,7 @@ async def hl_xslx(message, state: FSMContext):
             )
 
     except Exception:
-        await message.answer("Вы не кинули xlsx файл. Повторите попытку.")
+        await message.answer("Вы не кинули xlsx файл или заполнили его неправильно. Повторите попытку.")
 
 
 @logger.catch
@@ -961,10 +972,9 @@ async def sleep_excel(message: types.Message):
 async def document_private(message: types.Message, state: FSMContext):
     project = await state.get_data()
     await state.update_data(id=message.from_user.id)
-
     if project.get("project") not in ["zora", "hyperlane", "cex", "checker"]:
-        await sleep_excel(message)
         try:
+            await sleep_excel(message)
             file_name = await state.update_data(file=message.document.file_name)
 
             path_to_xlsx = os.path.join(
@@ -1001,7 +1011,8 @@ async def document_private(message: types.Message, state: FSMContext):
                     "изменить в нем данные и отправить обратно боту"
                 )
         except Exception:
-            await message.answer("Вы не кинули xlsx файл. Повторите попытку.")
+            await message.answer("Вы не кинули xlsx файл или заполнили его неправильно. Повторите попытку.")
+            return
 
     if project.get("project") == "zora":
         try:
@@ -1037,7 +1048,8 @@ async def document_private(message: types.Message, state: FSMContext):
                 )
 
         except Exception:
-            await message.answer("Вы не кинули xlsx файл. Повторите попытку.")
+            await message.answer("Вы не кинули xlsx файл или заполнили его неправильно. Повторите попытку.")
+            return
 
     else:
         ...
@@ -1157,8 +1169,12 @@ async def process_data(message: types.Message, project: str, path_to_xlsx: str, 
     if project not in ["hyperlane", "checker", "zora"]:
         current_directory = os.path.dirname(os.path.realpath(__file__))
         current_directory1 = current_directory.split("\\")
-
-        addresses = await checker.generate_address(path_to_xlsx)
+        try:
+            addresses = await checker.generate_address(path_to_xlsx)
+        except Exception as e:
+            logger.error(e)
+            await message.answer("Вы не заполнили xlsx файл. Попробуйте снова.")
+            return
         await save_data(project, addresses, FSMContext)
         await check_start(project)
         await asyncio.sleep(3)
@@ -1175,7 +1191,7 @@ async def process_data(message: types.Message, project: str, path_to_xlsx: str, 
                     wf = list(row.keys())[0]
                     values = row[wf].split(";")
                     eth_balance = values[1]
-                    if float(eth_balance) >= 0.0001:
+                    if float(eth_balance) >= 0:
                         wallets[values[0]] = eth_balance
                     else:
                         data = "0"
@@ -1183,7 +1199,7 @@ async def process_data(message: types.Message, project: str, path_to_xlsx: str, 
 
             if data != "0":
                 data = "\n".join([f"{key}: {value} ETH" for key, value in wallets.items()])
-
+            print(data)
             wallets_num = len(wallets)
             logger.info(wallets_num)
 
@@ -1353,6 +1369,7 @@ async def time_sleep_project_choice(callback: types.CallbackQuery, state: FSMCon
         "Выберите интервал задержки между кошельками и функциями.",
         reply_markup=inline_kb.sleep_inline(),
     )
+    await callback.message.delete()
 
 
 @logger.catch
@@ -1380,8 +1397,13 @@ async def bridge_project_choice(callback: types.CallbackQuery, state: FSMContext
 
 @logger.catch
 async def chain_project_choice2(callback: types.CallbackQuery, state: FSMContext):
-    await state.update_data(network=callback.data)
-    await start_or_notify(callback, state)
+    data = await state.get_data()
+    
+    if callback.data.split("_")[0] == data.get("project"):
+        await callback.message.answer("Нельзя переводить из одной сети в эту же. Выберите другую сеть.")
+    else:
+        await state.update_data(network=callback.data)
+        await start_or_notify(callback, state)
 
 
 @logger.catch

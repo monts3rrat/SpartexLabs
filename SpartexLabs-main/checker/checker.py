@@ -1,10 +1,10 @@
 import blocksmith
-from openpyxl import load_workbook
+import openpyxl
 import asyncio
 
 
 async def generate_address(path_to_xlsx):
-    workbook = load_workbook(path_to_xlsx)
+    workbook = openpyxl.load_workbook(path_to_xlsx)
     sheet = workbook.active
 
     addresses = []
@@ -19,12 +19,12 @@ async def generate_address(path_to_xlsx):
         ):
             break
         addresses.append(blocksmith.EthereumWallet.generate_address(private_key))
-
+    workbook.close()
     return addresses
 
 
 async def generate_address_zora(path_to_xlsx):
-    workbook = load_workbook(path_to_xlsx)
+    workbook = openpyxl.load_workbook(path_to_xlsx)
     sheet = workbook.active
 
     addresses = []
@@ -39,5 +39,5 @@ async def generate_address_zora(path_to_xlsx):
         ):
             break
         addresses.append(blocksmith.EthereumWallet.generate_address(private_key))
-
+    workbook.close()
     return addresses

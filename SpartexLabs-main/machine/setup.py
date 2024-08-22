@@ -6,7 +6,6 @@ import sqlite3
 from loguru import logger
 import machine.functions_texts as txt
 
-
 current_file = os.path.realpath(__file__)
 current_directory = os.path.dirname(current_file)
 current_directory1 = current_directory.split("\\")
@@ -28,6 +27,7 @@ async def check_sessions(message):
 async def unpacking_machine(machine_num):
     session = await check_sessions(machine_num)
     session = session[0]
+    print(session)
 
     with zipfile.ZipFile("machine/SpartexSoft.zip", "r") as fantasy_zip:
         fantasy_zip.extractall(f"machine/SpartexSoft{machine_num}_{session}")
@@ -39,7 +39,7 @@ async def unpacking_machine(machine_num):
 async def move_excel(machine_num):
     session = await check_sessions(machine_num)
     session = session[0]
-
+    
     path_excel = os.path.join(
         "/".join(current_directory1[:-1]), f"accounts_user/accounts_data_{machine_num}.xlsx"
     )
@@ -50,7 +50,9 @@ async def move_excel(machine_num):
 
     if os.path.exists(dest_path):
         os.remove(dest_path)
-
+    
+    await asyncio.sleep(20)
+    
     shutil.move(path_excel, dest_path)
 
     logger.info(
