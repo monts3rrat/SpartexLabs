@@ -26,8 +26,10 @@ async def check_sessions(message):
 
 async def unpacking_machine(machine_num):
     session = await check_sessions(machine_num)
-    session = session[0]
-    print(session)
+    try:
+        session = session[0]
+    except:
+        session = 0
 
     with zipfile.ZipFile("machine/SpartexSoft.zip", "r") as fantasy_zip:
         fantasy_zip.extractall(f"machine/SpartexSoft{machine_num}_{session}")
@@ -38,7 +40,10 @@ async def unpacking_machine(machine_num):
 
 async def move_excel(machine_num):
     session = await check_sessions(machine_num)
-    session = session[0]
+    try:
+        session = session[0]
+    except:
+        session = 0
     
     path_excel = os.path.join(
         "/".join(current_directory1[:-1]), f"accounts_user/accounts_data_{machine_num}.xlsx"
@@ -64,7 +69,10 @@ async def change_settings_file(
         machine_num, machine_func, project, sleep, bridge, network
 ):
     session = await check_sessions(machine_num)
-    session = session[0]
+    try:
+        session = session[0]
+    except:
+        session = 0
 
     settings_path = os.path.join(
         current_directory, f"SpartexSoft{machine_num}_{session}/SpartexSoft/settings.py"
@@ -186,7 +194,10 @@ async def change_settings_file(
 
 async def start_machine(machine_num):
     session = await check_sessions(machine_num)
-    session = session[0]
+    try:
+        session = session[0]
+    except:
+        session = 0
 
     batch_path = os.path.join(current_directory, "starting_machine.bat")
     with open(batch_path, "r") as file:
@@ -204,7 +215,10 @@ async def start_machine(machine_num):
 
 async def change_settings_file_hl(machine_num, func, net1, net2, sleep):
     session = await check_sessions(machine_num)
-    session = session[0]
+    try:
+        session = session[0]
+    except:
+        session = 0
 
     settings_path = os.path.join(current_directory, f"SpartexSoft{machine_num}_{session}/SpartexSoft/settings.py")
     general_settings_path = os.path.join(current_directory,
@@ -311,7 +325,10 @@ async def execute_batch_script_zora(batch_path, machine_num, session, func_num):
 
 async def main_zora(machine_num, func, sleep, url_mint=None):
     session = await check_sessions(machine_num)
-    session = session[0]
+    try:
+        session = session[0]
+    except:
+        session = 0
     current_directory_zora = os.getcwd()
 
     await download_and_extract_dropbox_file_zora(machine_num, session)
