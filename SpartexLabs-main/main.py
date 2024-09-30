@@ -498,10 +498,12 @@ async def session_menu(message: types.Message, state: FSMContext):
     formatted_text = ""
     
     for line in qq:
-        parts = line.split(":")
-        index, base, status_info = parts[0], parts[1], parts[2]
-        formatted_text += f"({index.strip()}) - <b>{status_info.strip()}</b> - <i>{base.strip()}</i>\n"
-
+        try:
+            parts = line.split(":")
+            index, base, status_info = parts[0], parts[1], parts[2]
+            formatted_text += f"({index.strip()}) - <b>{status_info.strip()}</b> - <i>{base.strip()}</i>\n"
+        except:
+            formatted_text = "У Вас пока нет сессий, пополняй баланс и крути ретро!"
 
     if num_pages > 1:
         keyboard = inline_kb.session_list1()
