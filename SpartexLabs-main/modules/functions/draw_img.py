@@ -18,7 +18,7 @@ async def draw_profile(id_user, balance):
         draw = ImageDraw.Draw(image)
         font_path = f"{path}/fonts/Voltaire-Regular.ttf"
         font = ImageFont.truetype(font_path, size=126)
-        print(balance)
+
         id_x = 51
         if len(id_user) == 9:
             id_x = 76
