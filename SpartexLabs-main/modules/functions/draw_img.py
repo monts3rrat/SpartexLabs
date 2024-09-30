@@ -18,7 +18,7 @@ async def draw_profile(id_user, balance):
         draw = ImageDraw.Draw(image)
         font_path = f"{path}/fonts/Voltaire-Regular.ttf"
         font = ImageFont.truetype(font_path, size=126)
-
+        print(balance)
         id_x = 51
         if len(id_user) == 9:
             id_x = 76
@@ -36,6 +36,11 @@ async def draw_profile(id_user, balance):
             balance_x = 180
         elif len(balance) == 5:
             balance_x = 150
+        elif len(balance) == 6:
+            balance_x = 130
+        elif len(balance) == 7:
+            print("да")
+            balance_x = 115
 
         draw.text((id_x, 453), id_user, font=font, fill=(255, 255, 255))
         draw.text((balance_x, 251), f"{balance}$", font=font, fill=(255, 255, 255))
